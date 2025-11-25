@@ -15,6 +15,11 @@ jobs:
       NODE_OPTIONS: --max-old-space-size=8192
 
     steps:
+      - name: Checkout master branch for lint step
+        uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4
+        with:
+          ref: master
+
       - name: Checkout code
         uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4
 
@@ -44,11 +49,6 @@ jobs:
 
       - name: build all packages
         run: yarn backstage-cli repo build --all
-
-      - name: Checkout master branch for lint step
-        uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4
-        with:
-          ref: master
 
       - name: lint
         run: yarn backstage-cli repo lint --since origin/master
