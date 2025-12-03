@@ -11,7 +11,7 @@ podman-push:
 	rm -rf plugins/sandbox/dist-dynamic && \
 	rm -rf red-hat-developer-hub-backstage-plugin-sandbox && \
 	yarn install && \
-	npx @janus-idp/cli@latest package package-dynamic-plugins \
+	npx --yes @janus-idp/cli@latest package package-dynamic-plugins \
 	  --tag $(IMAGE) \
 	  --platform $(IMAGE_PLATFORM)
 	podman push $(IMAGE)
