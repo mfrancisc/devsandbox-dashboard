@@ -5,7 +5,11 @@
 ###########################################################
 
 E2E_REPO_PATH := ""
-PUBLISH_UI ?= false
+
+# PUBLISH_UI is set to false
+# DEPLOY_UI is set to true
+# for more details, check https://github.com/codeready-toolchain/toolchain-e2e/blob/master/make/devsandbox-dashboard.mk
+
 DEPLOY_UI ?= true
 
 .PHONY: test-e2e-local
